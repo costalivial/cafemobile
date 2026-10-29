@@ -1,5 +1,6 @@
 // ==========================================================
-// app.js - Dia 3: abas, pedido, localStorage e vibração
+// app.js - Dia 4: abas, pedido, localStorage e vibração
+// (a câmera fica em camera.js)
 // ==========================================================
 
 // ---------- Utilidades ----------
@@ -42,6 +43,11 @@ function abrirTela(idTela) {
     aba.classList.toggle("ativa", aba.dataset.tela === idTela);
   }
   window.scrollTo(0, 0);
+
+  // Saiu da tela da câmera? Desliga a câmera para economizar bateria
+  if (idTela !== "tela-camera") {
+    desligarCamera(); // função que está em camera.js
+  }
 }
 
 for (const aba of abas) {
